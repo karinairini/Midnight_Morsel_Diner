@@ -1,0 +1,19 @@
+<div class="card shadow-lg p-2 mt-3">
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <i class="fa-regular fa-credit-card mr-2"></i>
+      <div class="d-flex flex-column align-items-start">
+        <span class="details">Price: {{ order.totalPaycheck.toFixed(2) }} €</span>
+        <span class="details">Date: {{ order.orderDate }}</span>
+      </div>
+    </div>
+    <button class="btn btn-link" (click)="toggleOrderDetails()">
+      <i class="fa-regular fa-eye"></i>
+    </button>
+  </div>
+  @if (showDetails) {
+    @for (foodDish of order.foodDishes; track foodDish.id) {
+      <app-food-card [foodForOrder]="foodDish" [isOrder]=true></app-food-card>
+    }
+  }
+</div>

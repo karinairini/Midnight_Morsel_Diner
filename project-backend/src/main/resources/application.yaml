@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: projectPS
+  datasource:
+    url: jdbc:postgresql://localhost:5432/diner_db
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  activemq:
+    broker-url: tcp://localhost:61616
+server:
+  servlet:
+    context-path: '/api/midnight-morsel-diner'
+  port: 8555
+  error:
+    whitelabel:
+      enabled: false
+security:
+  secret-key: PS-PROJECT-Midnight-Morsel-Diner-1a2s3d4f5g6h7j8k9l0
+  token-expiration-days: 123456789
+queues:
+  async-mail-sender-request: async-mail-sender-request

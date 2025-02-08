@@ -1,0 +1,37 @@
+<app-navigation-bar></app-navigation-bar>
+
+@if (loggedUser.role == "CLIENT") {
+  <div class="card shadow-lg p-2">
+    <div class="d-flex flex-col align-items-center justify-content-center"
+         (click)="toggleShowCalendar()">
+      <span class="fw-bold">Make reservation</span>
+      <i class="fa-solid icon" [ngClass]="{'fa-caret-down': showCalendar, 'fa-caret-right': !showCalendar}"></i>
+    </div>
+    @if (showCalendar) {
+      <igx-calendar (selected)="onSelection($event)"></igx-calendar>
+    }
+  </div>
+  <div class="p-2">
+    @for (reservation of reservations; track reservation.id) {
+      <app-reservation-card [reservation]="reservation"
+                            (deleteReservationEvent)="deleteReservation($event)"></app-reservation-card>
+    }
+  </div>
+} @else {
+  @if (reservations.length == 0) {
+    <div class="no-reservations-message d-flex justify-content-center align-items-center">
+      <h4>All reservations processed</h4>
+    </div>
+  } @else {
+    <div class="p-2 reservations">
+      <div class="row  row-cols-md-4">
+        @for (reservation of reservations; track reservation.id) {
+          <div class="col mb-3">
+            <app-reservation-flip-card [reservation]="reservation"
+                                       (updateReservationEvent)="updateReservation($event)"></app-reservation-flip-card>
+          </div>
+        }
+      </div>
+    </div>
+  }
+}

@@ -1,0 +1,33 @@
+.card, .employees {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.hire-card:hover {
+  background-color: #E74C3C;
+}
+
+.icon {
+  font-size: 23px;
+  margin-left: 20px;
+}
+
+.fw-bold, .form-control-lg, .form-select-lg, .btn{
+  font-size: 25px;
+  font-family: "Open Sans", serif;
+}
+
+.btn {
+  padding: 15px 30px;
+  margin-top: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.alert {
+  font-size: 20px;
+}

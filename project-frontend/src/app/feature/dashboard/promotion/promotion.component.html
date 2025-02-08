@@ -1,0 +1,34 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow p-5 rounded">
+        <div class="card-body">
+          <h3 class="text-center">PROMOTION</h3>
+          <p class="text-left" style="margin-top: 70px;">Name: {{ employeeName }}</p>
+          <p class="text-left" style="margin-top: 30px;">Email: {{ employeeEmail }}</p>
+          <form class="requires-validation" [formGroup]="promotionForm" (ngSubmit)="promote()">
+            <div class="col-md-12 mb-4" style="margin-top: 30px;">
+              <select formControlName="position" class="form-select form-select-lg mt-3" required>
+                <option selected disabled value="">Position</option>
+                <option *ngFor="let employeeType of positionsAboveEmployeeType">{{ employeeType }}</option>
+              </select>
+            </div>
+            <div class="col-md-12 mt-2 mb-4">
+              <input formControlName="salary" class="form-control form-control-lg" placeholder="Salary" required
+                     type="number">
+            </div>
+            @if (errorMessage) {
+              <div class="alert alert-danger d-flex justify-content-center align-items-center" role="alert">
+                {{ errorMessage }}
+              </div>
+            }
+            <div class="text-center">
+              <button type="submit" class="btn btn-lg btn-success" style="margin-top: 75px;">Promote</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

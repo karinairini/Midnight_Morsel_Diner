@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.8/css/all.css'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <title>Food card</title>
+</head>
+<div class="card shadow-lg p-2 mt-2 mb-3">
+  <div class="d-flex flex-row p-2 align-items-center">
+    <i
+      class="{{ (!isCart && !isOrder) ? 'fa-solid fa-bowl-rice bowl-rice' : 'fa-solid fa-utensils utensils-icon' }}">
+    </i>
+    <div class="d-flex flex-column me-auto">
+      @if (!isCart && !isOrder) {
+        <span class="fw-bold">Name: {{ food.name }}</span>
+        <span class="fw-bold mt-3">Price: {{ food.price }} €</span>
+        <span class="fw-bold mt-3">Rating:
+        <div class="stars-outer">
+          <div class="stars-inner" [style.width]="(food.rating / 5) * 100 + '%'"></div>
+        </div>
+      </span>
+      } @else {
+        <span class="fw-bold">Name: {{ foodForOrder.name }}</span>
+        <span class="fw-bold mt-2">Price: {{ foodForOrder.price }} €</span>
+      }
+    </div>
+    @if (!isCart && !isOrder && !isEmployee) {
+      <button class="btn btn-danger" id="add-to-cart-button" (click)="addToCart(food.id)">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    } @else if (isCart) {
+      <button class="btn btn-danger rounded-circle" (click)="removeFromCart(foodForOrder.id)">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+    } @else if(isEmployee) {
+      <button class="btn btn-danger" (click)="deleteFoodDish(food.id)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    }
+  </div>
+</div>
+</html>

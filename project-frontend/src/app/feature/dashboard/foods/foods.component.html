@@ -1,0 +1,43 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="container">
+  <form class="requires-validation d-flex justify-content-center mt-3" [formGroup]="searchForm"
+        (ngSubmit)="getAllByName()">
+    <input formControlName="name" class="form-control form-control-lg" placeholder="Name" required
+           type="text">
+    <button class="btn btn-info" type="submit" id="search-button">
+      <i class="fa fa-magnifying-glass"></i>
+    </button>
+  </form>
+</div>
+<div class="p-2 d-flex flex-column justify-content-center mt-3">
+  @for (foodDish of foodDishes; track foodDish.id) {
+    <app-food-card [food]="foodDish" [isEmployee]="loggedUser.role === 'EMPLOYEE'"
+                   (deleteFoodDishEvent)="deleteFoodDish($event)"
+                   (addFoodDishToCartEvent)="addToCart($event)">
+    </app-food-card>
+  } @empty {
+    <p id="food-dishes-empty"></p>
+  }
+</div>
+
+<nav aria-label="Page navigation" class="fixed-bottom mb-3">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" id="previous" (click)="decrementPageNumber()"
+         [class.disabled]="pageNumber === 0">Previous</a>
+    </li>
+    <ng-container *ngFor="let page of pagesArray">
+      <li class="page-item">
+        <a class="page-link" (click)="goToPage(page)" [class.active]="pageNumber === (page - 1)">
+          {{ page }}
+        </a>
+      </li>
+    </ng-container>
+    <li class="page-item">
+      <a class="page-link" (click)="incrementPageNumber()" [class.disabled]="pageNumber === (maximumPageNumber - 1)">
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>

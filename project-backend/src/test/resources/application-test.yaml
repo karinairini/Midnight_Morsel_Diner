@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:midnight-morsel-diner_test_db
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+security:
+  admin-jwt-token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJyb2xlIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxMDY2ODM4MjcyMjAwMH0.Rat5x3cLrbtan4QhOLttA-y3oW7LBylvgx9RnjeqfA-FEXwEbySvN9CpyCOmb6PM
+  invalid-jwt-token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJyb2xlIjpbIlJPTEVfQURNSU4iXSwiZXhwIjox

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css">
+</header>
+<body>
+<div class="flip-card mt-4">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" style="background-image: url('./assets/images/reservation-background-front.jpg')">
+      <h3>Reservation</h3>
+      <h4 style="margin-top: 70px;">Client: {{ reservation.client.name }}</h4>
+      <h4>Date: {{ reservation.reservationDate }}</h4>
+    </div>
+    <div class="flip-card-back" style="background-image: url('./assets/images/reservation-background-back.jpg')">
+      <button class="button accept"
+              (click)="updateReservation(reservation.id, 'APPROVED')">Accept
+      </button>
+      <button class="button decline"
+              (click)="updateReservation(reservation.id, 'DECLINED')">Decline
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

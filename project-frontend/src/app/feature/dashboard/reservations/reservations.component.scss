@@ -1,0 +1,24 @@
+.card, .reservations {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.card:hover {
+  background-color: #de1b73;
+}
+
+.icon {
+  font-size: 23px;
+  margin-left: 20px;
+}
+
+.fw-bold {
+  font-size: 25px;
+}
+
+.no-reservations-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

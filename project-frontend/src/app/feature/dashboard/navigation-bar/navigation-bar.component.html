@@ -1,0 +1,46 @@
+<nav>
+  <div>
+    <ul>
+      @if (loggedUser.role == "CLIENT") {
+        <li>
+          <button class="btn btn-lg" (click)="goToFoods()">FOOD DISHES</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToReservations()">RESERVATIONS</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToOrders()">ORDERS</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToCart()">
+            <span><i class="fa-solid fa-cart-shopping"></i></span>
+            <span *ngIf="getNumberOfItemsInCart() > 0"
+                  class="badge rounded-pill badge-notification bg-danger">{{ getNumberOfItemsInCart() }}</span>
+          </button>
+        </li>
+      } @else if (loggedUser.role == "EMPLOYEE") {
+        <li>
+          <button class="btn btn-lg" (click)="goToFoods()"> FOOD DISHES</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToAddFoodDish()"> ADD FOOD DISH</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToClients()">CLIENTS</button>
+        </li>
+      } @else {
+        <li>
+          <button class="btn btn-lg" id="employees-button" (click)="goToEmployees()">EMPLOYEES</button>
+        </li>
+        <li>
+          <button class="btn btn-lg" (click)="goToReservations()">RESERVATIONS</button>
+        </li>
+      }
+      <li>
+        <button class="btn btn-lg" id="logout-button" (click)="logOut()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="p-2 d-flex flex-column justify-content-center">
+  @for (order of orders; track order.id) {
+    <app-order-card [order]="order"></app-order-card>
+  } @empty {
+    <div class="no-orders-message d-flex justify-content-center align-items-center">
+      <h4>No orders made yet</h4>
+    </div>
+  }
+</div>

@@ -1,0 +1,13 @@
+<div class="card shadow-lg p-2 mt-2 mb-3">
+  <div class="d-flex flex-row p-2 align-items-center">
+    <i class="fa-solid fa-person user"></i>
+    <div class="d-flex flex-column me-auto">
+      <span class="fw-bold">Name: {{ client.name }}</span>
+      <span class="fw-bold mt-2">Email: {{ client.email }}</span>
+      <span class="fw-bold mt-2">Registration date: {{ client.registrationDate }}</span>
+    </div>
+    <button class="btn btn-danger" (click)="deleteClient()">
+      <i class="fa-solid fa-user-slash"></i>
+    </button>
+  </div>
+</div>

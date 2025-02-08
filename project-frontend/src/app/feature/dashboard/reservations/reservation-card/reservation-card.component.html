@@ -1,0 +1,22 @@
+<div class="card shadow-lg p-2 mt-3">
+  <div class="d-flex flex-row align-items-center">
+    <div class="m-3">
+      @if (reservation.status == "APPROVED") {
+        <i class="fa-regular fa-calendar-check"></i>
+      } @else if (reservation.status == "DECLINED") {
+        <i class="fa-regular fa-calendar-xmark"></i>
+      } @else {
+        <i class="fa-regular fa-calendar"></i>
+      }
+    </div>
+    <div class="d-flex flex-column me-auto">
+      <span class="fw-bold">Date: {{ reservation.reservationDate }}</span>
+      <span class="fw-bold">Status: {{ reservation.status }}</span>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

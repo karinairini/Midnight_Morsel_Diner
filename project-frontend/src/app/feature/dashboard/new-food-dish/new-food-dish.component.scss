@@ -1,0 +1,23 @@
+.card {
+  border: none;
+  height: 700px;
+  width: 1000px;
+  background-color: #e1edec;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control-lg, .form-select-lg, .text-left {
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.btn {
+  font-size: 27px;
+  margin-top: 55px;
+  padding: 15px 20px;
+}

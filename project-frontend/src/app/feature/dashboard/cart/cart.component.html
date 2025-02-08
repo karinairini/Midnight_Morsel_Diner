@@ -1,0 +1,19 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="cart p-2">
+  @if (cartFoodDishes.length > 0) {
+    <div class="text-center">
+      <p class="total-price">Total: {{ totalPrice.toFixed(2) }} €</p>
+      <button class="btn fixed-bottom mb-5" (click)="buyCart()">BUY CART</button>
+    </div>
+    @for (foodDish of cartFoodDishes; track foodDish.id) {
+      <app-food-card [foodForOrder]="foodDish" [isCart]="true"
+                     (removeFromCartEvent)="deleteFoodDishFromCart($event)"></app-food-card>
+    }
+  } @else {
+    <div class="empty-cart-message d-flex justify-content-center align-items-center">
+      <h4>No items in cart</h4>
+    </div>
+  }
+</div>
+
